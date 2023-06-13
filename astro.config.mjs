@@ -7,5 +7,5 @@ import react from '@astrojs/react';
 export default defineConfig({
 	integrations: [tailwind(), react()],
 	site: 'https://schnetzubroot.github.io',
-	//base: '/Versatzrechner',
+	base: '/Versatzrechner',
 });
