@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/versatzrechner/favicon.svg">
+		<meta name="generator" content="Astro v2.5.6">
+		<title>Welcome to Astro.</title>
+	<link rel="stylesheet" href="/versatzrechner/_astro/index.d6be33fc.css" /><script type="module" src="/versatzrechner/_astro/hoisted.7cd3deba.js"></script></head>
+	<body class="flex w-screen h-screen bg-zinc-900 p-12">
+		
+	<div class="bg-zinc-800 w-full rounded-xl border-zinc-700 border p-4 drop-shadow-xl flex justify-center items-center flex-col">
+	
+		<h1 class="text-white text-4xl mt-12 font-semibold">Versatzrechner</h1>
+		<div class="h-full w-4/5 m-auto flex justify-around items-center">
+			<form @submit="{handleSubmit}" class="w-full m-12" id="form">
+				<div class="m-auto grid grid-cols-2">
+					<div class="w-48 p-2 astro-QYQQ6LVS">
+	<label for="major" class="text-white font-extralight mb-4 astro-QYQQ6LVS">Nenndurchmesser:</label>
+	<div class="relative mt-1 astro-QYQQ6LVS">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-QYQQ6LVS" value="4.0" name="major">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-QYQQ6LVS">
+			<p class="astro-QYQQ6LVS">mm</p>
+		</span>
+	</div>
+</div>
+					<div class="w-48 p-2 astro-QYQQ6LVS">
+	<label for="minor" class="text-white font-extralight mb-4 astro-QYQQ6LVS">Schaftdurchmesser:</label>
+	<div class="relative mt-1 astro-QYQQ6LVS">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-QYQQ6LVS" value="2.0" name="minor">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-QYQQ6LVS">
+			<p class="astro-QYQQ6LVS">mm</p>
+		</span>
+	</div>
+</div>
+				</div>
+				<hr class="my-8 mx-2 h-0.5 border-t-0 bg-neutral-600 opacity-100 dark:opacity-50">
+				<div class="m-auto grid grid-cols-2">
+					<style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var l;{let c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;let[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;let s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(let r of n){let i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(let r of s){let i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}let a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){let s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{let n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(let d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}})();</script><astro-island uid="1IekS1" prefix="r0" component-url="/versatzrechner/_astro/ListBox.1da70d6f.js" component-export="default" renderer-url="/versatzrechner/_astro/client.e6357ef4.js" props="{&quot;options&quot;:[1,&quot;[[0,{\&quot;name\&quot;:[0,\&quot;Vorwärts\&quot;]}],[0,{\&quot;name\&quot;:[0,\&quot;Rückwärts\&quot;]}]]&quot;],&quot;label&quot;:[0,&quot;Fasentyp&quot;],&quot;name&quot;:[0,&quot;chamfer-type&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;ListBox&quot;,&quot;value&quot;:true}" await-children=""><div class=" w-48 p-2"><input type="hidden" hidden="" readonly="" name="chamfer-type[name]" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none" value="Vorwärts"/><label class="text-white font-extralight mb-4" id="headlessui-listbox-label-:r0R6:" data-headlessui-state="">Fasentyp<!-- -->:</label><div class="relative mt-1"><button class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm" id="headlessui-listbox-button-:r0Rq:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state=""><span class="block truncate">Vorwärts</span><span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd"></path></svg></span></button></div></div></astro-island>
+					<div class="w-48 p-2 astro-QYQQ6LVS">
+	<label for="chamfer-size" class="text-white font-extralight mb-4 astro-QYQQ6LVS">Fasengrösse:</label>
+	<div class="relative mt-1 astro-QYQQ6LVS">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-QYQQ6LVS" value="" name="chamfer-size">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-QYQQ6LVS">
+			<p class="astro-QYQQ6LVS">mm</p>
+		</span>
+	</div>
+</div>
+					<astro-island uid="Z1R6amN" prefix="r1" component-url="/versatzrechner/_astro/ListBox.1da70d6f.js" component-export="default" renderer-url="/versatzrechner/_astro/client.e6357ef4.js" props="{&quot;options&quot;:[1,&quot;[[0,{\&quot;name\&quot;:[0,\&quot;Oberseitenversatz\&quot;]}],[0,{\&quot;name\&quot;:[0,\&quot;Unterseitenversatz\&quot;]}]]&quot;],&quot;label&quot;:[0,&quot;Versatzrichtung&quot;],&quot;name&quot;:[0,&quot;offset-direction&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;ListBox&quot;,&quot;value&quot;:true}" await-children=""><div class=" w-48 p-2"><input type="hidden" hidden="" readonly="" name="offset-direction[name]" style="position:fixed;top:1px;left:1px;width:1px;height:0;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0;display:none" value="Oberseitenversatz"/><label class="text-white font-extralight mb-4" id="headlessui-listbox-label-:r1R6:" data-headlessui-state="">Versatzrichtung<!-- -->:</label><div class="relative mt-1"><button class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm" id="headlessui-listbox-button-:r1Rq:" type="button" aria-haspopup="listbox" aria-expanded="false" data-headlessui-state=""><span class="block truncate">Oberseitenversatz</span><span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="h-5 w-5 text-gray-400"><path fill-rule="evenodd" d="M10 3a.75.75 0 01.55.24l3.25 3.5a.75.75 0 11-1.1 1.02L10 4.852 7.3 7.76a.75.75 0 01-1.1-1.02l3.25-3.5A.75.75 0 0110 3zm-3.76 9.2a.75.75 0 011.06.04l2.7 2.908 2.7-2.908a.75.75 0 111.1 1.02l-3.25 3.5a.75.75 0 01-1.1 0l-3.25-3.5a.75.75 0 01.04-1.06z" clip-rule="evenodd"></path></svg></span></button></div></div></astro-island>
+					<div class="w-48 p-2 astro-QYQQ6LVS">
+	<label for="offset-size" class="text-white font-extralight mb-4 astro-QYQQ6LVS">Versatzgrösse:</label>
+	<div class="relative mt-1 astro-QYQQ6LVS">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-QYQQ6LVS" value="" name="offset-size">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-QYQQ6LVS">
+			<p class="astro-QYQQ6LVS">mm</p>
+		</span>
+	</div>
+</div>
+				</div>
+				<hr class="my-8 mx-2 h-0.5 border-t-0 bg-neutral-600 opacity-100 dark:opacity-50">
+				<div class="m-auto grid grid-cols-2">
+					<div class="w-48 p-2 astro-P23ZM32T">
+	<label for="wall" class="text-white font-extralight mb-4 astro-P23ZM32T">Wandaufmass:</label>
+	<div class="relative mt-1 astro-P23ZM32T">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-blue-100 py-2 pl-3 pr-10 text-black text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-P23ZM32T" readonly id="wall">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-P23ZM32T">
+			<p class="astro-P23ZM32T">mm</p>
+		</span>
+	</div>
+</div>
+					<div class="w-48 p-2 astro-P23ZM32T">
+	<label for="floor" class="text-white font-extralight mb-4 astro-P23ZM32T">Bodenaufmass:</label>
+	<div class="relative mt-1 astro-P23ZM32T">
+		<input type="number" class="relative w-full cursor-default rounded-lg bg-blue-100 py-2 pl-3 pr-10 text-black text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-blue-400 sm:text-sm astro-P23ZM32T" readonly id="floor">
+		<span class="absolute right-3 top-1 text-gray-500 font-normal text-base sm:text-sm sm:top-2 astro-P23ZM32T">
+			<p class="astro-P23ZM32T">mm</p>
+		</span>
+	</div>
+</div>
+				</div>
+			</form>
+
+			<div id="3d-render-container" class="w-4/5 h-4/5 rounded-xl bg-gradient-to-b from-slate-100 to-blue-200">
+</div>
+		</div>
+
+		<button type="submit" class="bg-blue-500 p-2 px-5 m-10 mb-14 rounded-lg text-white font-extralight text-base hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.12)]">Berechnen</button>
+		<p class="text-center text-neutral-500">
+			&copy; Copyright 2023, Noel Engeler
+		</p>
+	
+</div>
+
+	</body></html>
