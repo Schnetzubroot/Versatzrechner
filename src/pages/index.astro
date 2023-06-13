@@ -1,81 +1,154 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+
+import Container from '../components/Container.astro';
+import Input from '../components/Input.astro';
+import Output from '../components/Output.astro';
+import ListBox from '../components/ListBox';
+import ThreeComponent from '../components/ThreeComponent.astro';
+
+const type = [{ name: 'Vorwärts' }, { name: 'Rückwärts' }];
+const versatz = [{ name: 'Oberseitenversatz' }, { name: 'Unterseitenversatz' }];
+
+// TODO: Add Output DONE
+// TODO: Add Functionality DONE
+// TODO: Add 3d Render / 2d Render / Visualization
+// TODO: Input, add auto trailing zero
+// TODO: Favicon
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
+	<Container>
+		<h1 class="text-white text-4xl mt-12 font-semibold">Versatzrechner</h1>
+		<div class="h-full w-4/5 m-auto flex justify-around items-center">
+			<form @submit="{handleSubmit}" class="w-full m-12" id="form">
+				<div class="m-auto grid grid-cols-2">
+					<Input name="major" label="Nenndurchmesser" defaultValue="4.0" />
+					<Input name="minor" label="Schaftdurchmesser" defaultValue="2.0" />
+				</div>
+				<hr
+					class="my-8 mx-2 h-0.5 border-t-0 bg-neutral-600 opacity-100 dark:opacity-50"
+				/>
+				<div class="m-auto grid grid-cols-2">
+					<ListBox
+						options={type}
+						label="Fasentyp"
+						name="chamfer-type"
+						client:load
+					/>
+					<Input name="chamfer-size" label="Fasengrösse" />
+					<ListBox
+						options={versatz}
+						label="Versatzrichtung"
+						name="offset-direction"
+						client:load
+					/>
+					<Input name="offset-size" label="Versatzgrösse" />
+				</div>
+				<hr
+					class="my-8 mx-2 h-0.5 border-t-0 bg-neutral-600 opacity-100 dark:opacity-50"
+				/>
+				<div class="m-auto grid grid-cols-2">
+					<Output name="wall" label="Wandaufmass" />
+					<Output name="floor" label="Bodenaufmass" />
+				</div>
+			</form>
+
+			<ThreeComponent client:load />
+		</div>
+
+		<button
+			type="submit"
+			class="bg-blue-500 p-2 px-5 m-10 mb-14 rounded-lg text-white font-extralight text-base hover:drop-shadow-[0_0_12px_rgba(59,130,246,0.12)]"
+			>Berechnen</button
+		>
+		<p class="text-center text-neutral-500">
+			&copy; Copyright 2023, Noel Engeler
 		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+	</Container>
 </Layout>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+<script>
+	const major = document.getElementsByName('major')[0] as HTMLInputElement;
+	const minor = document.getElementsByName('minor')[0] as HTMLInputElement;
+	const type = document.querySelector(
+		'input[name^="chamfer-type["]'
+	) as HTMLInputElement;
+	const size = document.getElementsByName(
+		'chamfer-size'
+	)[0] as HTMLInputElement;
+	const direction = document.querySelector(
+		'input[name^="offset-direction["]'
+	) as HTMLInputElement;
+	const offset = document.getElementsByName(
+		'offset-size'
+	)[0] as HTMLInputElement;
+
+	const form = document.getElementById('form');
+
+	const outputWall = document.getElementById('wall') as HTMLInputElement;
+	const outputFloor = document.getElementById('floor') as HTMLInputElement;
+
+	const customEvent = new CustomEvent('updateSimulation', {
+		bubbles: true,
+		cancelable: false,
+	});
+
+	const button = document.querySelectorAll('button[type="submit"]')[0];
+	button.addEventListener('click', (event) => {
+		event.preventDefault();
+		// Handle stuff
+		const majorValue = Number(major.value);
+		const minorValue = Number(minor.value);
+		const typeValue = type.value;
+		const sizeValue = Number(size.value);
+		const directionValue = direction.value;
+		const offsetValue = Number(offset.value);
+
+		let wall;
+		let floor;
+
+		form.addEventListener('myEvent', (e) => {
+			console.log('custom event emitted and triggered');
+		});
+
+		// some calculations based on different scenarios
+		if (typeValue == 'Vorwärts' && directionValue == 'Oberseitenversatz') {
+			console.log('Vor Oben');
+			wall = -offsetValue - sizeValue;
+			floor = -majorValue / 2 + offsetValue;
+		} else if (
+			typeValue == 'Vorwärts' &&
+			directionValue == 'Unterseitenversatz'
+		) {
+			console.log('Vor Unter');
+			wall = -majorValue / 2 + offsetValue;
+			floor = -sizeValue - offsetValue;
+		} else if (
+			typeValue == 'Rückwärts' &&
+			directionValue == 'Oberseitenversatz'
+		) {
+			console.log('Rück Oben');
+			wall = -(majorValue / 2 - offsetValue - minorValue / 2);
+			floor =
+				-(majorValue / 2 + (majorValue - minorValue) / 2) +
+				offsetValue +
+				sizeValue;
+		} else if (
+			typeValue == 'Rückwärts' &&
+			directionValue == 'Unterseitenversatz'
+		) {
+			console.log('Rück Unten');
+			wall = -sizeValue - offsetValue;
+			floor = -majorValue / 2 - offsetValue;
+		} else {
+			console.error('Shit went south here');
+		}
+
+		outputWall.value = String(Math.round((wall + Number.EPSILON) * 100) / 100);
+		outputFloor.value = String(
+			Math.round((floor + Number.EPSILON) * 100) / 100
+		);
+		form.dispatchEvent(customEvent);
+	});
+</script>
